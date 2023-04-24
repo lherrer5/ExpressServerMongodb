@@ -1,0 +1,64 @@
+# GET con y sin producto
+GET http://localhost:3060/productos/ HTTP/1.1
+
+
+###POST con ID unico
+POST http://localhost:3060/productos HTTP/1.1
+Content-Type: application/json
+
+{
+"nombre":"pantalon",
+"precio":"120",
+"unidades":"10",
+"categoria":"hombre",
+"descripción":"pantalon de drill para hombre"
+}
+
+
+###PATCH con ID unico
+PATCH  http://localhost:3060/productos/5 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre":"short"
+}
+
+###DELETE con ID unico
+DELETE http://localhost:3060/productos/5 HTTP/1.1
+
+
+#    {
+#     "id": 1,
+#     "nombre":"short",
+#     "precio":"40",
+#     "unidades":"10",
+#     "categoria":"niño",
+#     "descripción":"short de colores para niño"
+#     }
+
+# {
+#     "id": 2,
+#     "nombre":"pantalon",
+#     "precio":"120",
+#     "unidades":"10",
+#     "categoria":"hombre",
+#     "descripción":"pantalon de drill para hombre"
+# }
+
+# {
+#     "id": 3,
+#     "nombre":"falda",
+#     "precio":"90",
+#     "unidades":"2",
+#     "categoria":"mujer",
+#     "descripción":"falda corta para mujer"
+# }
+
+# {
+#     "id": 4,
+#     "nombre":"corbata",
+#     "precio":"20",
+#     "unidades":"5",
+#     "categoria":"hombre",
+#     "descripción":"corbata larga para hombre"
+# }
