@@ -1,6 +1,7 @@
 //Routs of cliet request
 const { Router } = require("express");
-const { Product } = require("./models");
+const { Product } = require("../models");
+//const { validateSignup } = require("../validator");
 
 const routes = new Router();
 
@@ -8,7 +9,6 @@ const routes = new Router();
 routes.get("/health", (_, res) => res.send("check"));
 
 //GET
-//routes.get("/api/v1/products", [productValidator], async (_, res)=>{
 routes.get("/api/v1/products", async (_, res) => {
     console.log("Product -> getAllProducts");
     const products = await Product.find();
@@ -28,6 +28,7 @@ routes.get("/api/v1/products/:id", async (req, res) => {
 
 
 //POST
+//routes.post("/api/v1/products", validateSignup, async (req, res) => {
 routes.post("/api/v1/products", async (req, res) => {
     console.log("Product -> createProduct");
     const product = await new Product(req.body).save();

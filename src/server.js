@@ -1,7 +1,7 @@
 //const { validateSignup } = require("./validator");
-//const { validateActProducto } = require("./validator");
-// const { validateDelProducto } = require("./validator");
-// const fs = require("fs");
+//const { validateUpdateProduct } = require("./validator");
+// const { validateDelProduct } = require("./validator");
+// //const { errorHandler } = require("./errorH");
 // const cors = require('cors');
 require('dotenv').config();
 
@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3080,
 app.use(express.json());
 //app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-app.use("/", require("./routes"));
+app.use("/", require("./routes/routes"));
 //app.use(notFoundHandler);
 //app.use(errorHandler);
 
