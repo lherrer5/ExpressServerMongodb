@@ -1,18 +1,52 @@
 //Routs of cliet request
-const {Router}=require("express");
-const {Product}=require("./models");
+const { Router } = require("express");
+const { Product } = require("./models");
 
-const routes=new Router();
+const routes = new Router();
 
 //all APIs should have a health check that is a request to review that our server is working
-routes.get("/health", (_, res)=>res.send("check"));
+routes.get("/health", (_, res) => res.send("check"));
 
-//get
+//GET
 //routes.get("/api/v1/products", [productValidator], async (_, res)=>{
-routes.get("/api/v1/products", async (_, res)=>{
+routes.get("/api/v1/products", async (_, res) => {
     console.log("Product -> getAllProducts");
     const products = await Product.find();
     res.json(products);
-})
+});
 
-module.exports=routes;
+//GET by ID
+routes.get("/api/v1/products/:id", async (req, res) => {
+    console.log("Product -> getProductById");
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    if (!product) {
+        return res.status(404).json({ error: "Product not found" });
+    }
+    res.json(product);
+});
+
+
+//POST
+routes.post("/api/v1/products", async (req, res) => {
+    console.log("Product -> createProduct");
+    const product = await new Product(req.body).save();
+    res.json(product);
+});
+
+//DELETE by ID
+routes.delete("/api/v1/products/:id", async (req, res) => {
+    console.log("Product -> deleteProduct");
+    const { id } = req.params;
+    const product = await Product.findByIdAndRemove(id);
+    res.json({ message: `Product ${product.name} has been deleted` });
+});
+
+//PATCH by ID
+routes.patch("/api/v1/products/:id", async (req, res) => {
+    console.log("Product -> updateProduct");
+    const { id } = req.params;
+    const product = await Product.findByIdAndUpdate(id, req.body, { new: true });
+    res.json(product);
+});
+module.exports = routes;

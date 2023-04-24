@@ -1,64 +1,50 @@
 # GET con y sin producto
-GET http://localhost:3060/productos/ HTTP/1.1
-
+GET http://localhost:3080/api/v1/products
 
 ###POST con ID unico
-POST http://localhost:3060/productos HTTP/1.1
+POST http://localhost:3080/api/v1/products HTTP/1.1
 Content-Type: application/json
 
 {
-"nombre":"pantalon",
-"precio":"120",
-"unidades":"10",
-"categoria":"hombre",
-"descripción":"pantalon de drill para hombre"
+    "name": "Men's short-sleeved shirt",
+    "description": "Soft and lightweight cotton shirt for warm days.",
+    "availableUnits": 20,
+    "price": 29.99,
+    "category": "Men"
 }
 
 
 ###PATCH con ID unico
-PATCH  http://localhost:3060/productos/5 HTTP/1.1
+PATCH  http://localhost:3080/api/v1/products/2 HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre":"short"
+    "name":"short"
 }
 
 ###DELETE con ID unico
-DELETE http://localhost:3060/productos/5 HTTP/1.1
+DELETE http://localhost:3080/api/v1/products/2 HTTP/1.1
 
-
-#    {
-#     "id": 1,
-#     "nombre":"short",
-#     "precio":"40",
-#     "unidades":"10",
-#     "categoria":"niño",
-#     "descripción":"short de colores para niño"
-#     }
-
-# {
-#     "id": 2,
-#     "nombre":"pantalon",
-#     "precio":"120",
-#     "unidades":"10",
-#     "categoria":"hombre",
-#     "descripción":"pantalon de drill para hombre"
-# }
-
-# {
-#     "id": 3,
-#     "nombre":"falda",
-#     "precio":"90",
-#     "unidades":"2",
-#     "categoria":"mujer",
-#     "descripción":"falda corta para mujer"
-# }
-
-# {
-#     "id": 4,
-#     "nombre":"corbata",
-#     "precio":"20",
-#     "unidades":"5",
-#     "categoria":"hombre",
-#     "descripción":"corbata larga para hombre"
-# }
+# [
+#   {
+#     "name": "Men's short-sleeved shirt",
+#     "description": "Soft and lightweight cotton shirt for warm days.",
+#     "availableUnits": 20,
+#     "price": 29.99,
+#     "category": "Men"
+#   },
+#   {
+#     "name": "Women's pleated skirt",
+#     "description": "Elegant skirt with a unique pleated pattern.",
+#     "availableUnits": 15,
+#     "price": 39.99,
+#     "category": "Women"
+#   },
+#   {
+#     "name": "Children's winter jacket",
+#     "description": "Padded jacket with a hood to protect children from the cold.",
+#     "availableUnits": 10,
+#     "price": 49.99,
+#     "category": "Children"
+#   }
+# ]
