@@ -1,5 +1,11 @@
 # GET con y sin producto
-GET http://localhost:3080/api/v1/products
+GET http://localhost:3080/api/v1/products/
+
+### GET hi
+GET http://localhost:3080/
+
+### GET health
+GET http://localhost:3080/health
 
 ###POST con ID unico
 POST http://localhost:3080/api/v1/products HTTP/1.1

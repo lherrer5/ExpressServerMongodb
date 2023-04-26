@@ -1,24 +1,17 @@
-//const { validateSignup } = require("./validator");
-//const { validateUpdateProduct } = require("./validator");
-// const { validateDelProduct } = require("./validator");
-// //const { errorHandler } = require("./errorH");
-// const cors = require('cors');
 require('dotenv').config();
 
 const express = require("express");
 const mongoose = require('mongoose');
-
-//const { errorHandler, notFoundHandler } = require("./middlewares/handlers");
+const { errorHandler, notFoundHandler } = require("./middlewares/errorH");
 
 const PORT = process.env.PORT || 3080,
     app = express();
 
 app.use(express.json());
-//app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use("/", require("./routes/routes"));
-//app.use(notFoundHandler);
-//app.use(errorHandler);
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 //create mongo connection
 const start = async () => {
@@ -29,7 +22,6 @@ const start = async () => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
-
         app.listen(PORT, () => {
             console.log(`Server started on port ${PORT}...`);
         });

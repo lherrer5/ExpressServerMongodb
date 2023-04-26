@@ -1,12 +1,18 @@
 //Routs of cliet request
 const { Router } = require("express");
-const { Product } = require("../models");
+const { Product } = require("../models/models");
+const { healthCheck, welcomePage } = require("../controllers/healthCheckController");
 //const { validateSignup } = require("../validator");
+//const { validateUpdateProduct } = require("../validator");
+// const { validateDelProduct } = require("../validator");
 
 const routes = new Router();
 
 //all APIs should have a health check that is a request to review that our server is working
-routes.get("/health", (_, res) => res.send("check"));
+//routes.get("/health", (_, res) => res.send("check"));
+routes.get("/", welcomePage)
+routes.get("/health", healthCheck)
+//routes.use("/v1/", require("./v1"));
 
 //GET
 routes.get("/api/v1/products", async (_, res) => {
