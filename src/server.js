@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3080,
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/", require("./routes/routes"));
+app.use("/", require("./routes/v1"));
 app.use(notFoundHandler);
 app.use(errorHandler);
 
