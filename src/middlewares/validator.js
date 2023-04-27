@@ -4,14 +4,25 @@ const Joi = require('joi');
 // const validator= (schema)=>(payload)=>
 //     schema.validate(payload, {abortEarly: false});
 
-const validate = (schema) => (req, res, next) => {
-    const { error } = schema.validate(req.body, { abortEarly: false });
-    if (error) {
-        const errors = error.details.map((err) => err.message);
-        return res.status(422).json({ errors });
-    }
-    next(null); // pasar null como argumento indica que no hay errores
-};
+// const validate = (schema) => (req, res, next) => {
+//     const { error } = schema.validate(req.body, { abortEarly: false });
+//     if (error) {
+//         const errors = error.details.map((err) => err.message);
+//         return res.status(422).json({ errors });
+//     }
+//     next(null); // pasar null como argumento indica que no hay errores
+// };
+// function validator (schema, property){
+//     return (req, res, next) => {
+//             const data=req[property];
+//             const { error } = schema.validate(data, { abortEarly: false });
+//             if (error) {
+//                 res.json(error.message);
+//                 //next(error);
+//             }
+//             next();
+//         };
+// }
 
 const newProductSchema = Joi.object({
     //id: Joi.number().optional(),
@@ -31,12 +42,15 @@ const updateProduct = Joi.object({
     description: Joi.string().optional()
 }).min(1);
 
-const delProduct = Joi.object({
-    id: Joi.number().integer().required()
-});
+// const delProduct = Joi.object({
+//     id: Joi.number().integer().required()
+// });
 
 
-exports.validatenewProduct = validate(newProductSchema)
-exports.validateUpdateProduct = validate(updateProduct)
-exports.validateDelProduct = validate(delProduct)
-
+// exports.validatenewProduct = validator(newProductSchema)
+// exports.validateUpdateProduct = validator(updateProduct)
+// exports.validateDelProduct = validator(delProduct)
+//module.exports = validator
+module.exports = newProductSchema
+module.exports =updateProduct
+//module.exports =delProduct

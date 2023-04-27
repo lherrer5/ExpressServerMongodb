@@ -7,29 +7,29 @@ GET http://localhost:3080/
 ### GET health
 GET http://localhost:3080/health
 
-###POST con ID unico
+###POST 
 POST http://localhost:3080/api/v1/products HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Women's pleated skirt",
-    "description": "Elegant skirt with a unique pleated pattern.",
-    "availableUnits": 15,
-    "price": 39.99,
-    "category": "Women"
+    "name": "Children's winter jacket",
+    "description": "Padded jacket with a hood to protect children from the cold.",
+    "availableUnits": 10,
+    "price": 49.99,
+    "category": "Children"
 }
 
 
 ###PATCH con ID unico
-PATCH  http://localhost:3080/api/v1/products/6446fd31687e0a985b01ea27 HTTP/1.1
+PATCH  http://localhost:3080/api/v1/products/6449c61e440cb46d3bce1a14 HTTP/1.1
 Content-Type: application/json
 
 {
-    "name":"short"
+    "category":"Men"
 }
 
 ###DELETE con ID unico
-DELETE http://localhost:3080/api/v1/products/6449a18c9851d3a614e91622 HTTP/1.1
+DELETE http://localhost:3080/api/v1/products/9878iuo HTTP/1.1
 
 # [
 #   {

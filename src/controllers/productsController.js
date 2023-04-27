@@ -1,5 +1,5 @@
 const { Product } = require("../models/models");
-const { validatenewProduct } = require("../middlewares/validator");
+//const { validatenewProduct } = require("../middlewares/validator");
 const { validateUpdateProduct } = require("../middlewares/validator");
 const { validateDelProduct } = require("../middlewares/validator");
 
@@ -33,13 +33,7 @@ const createProduct = async (req, res, next) => {
         next(error);
     }
 };
-// const createProduct = async (req, res) => {
-//     console.log("Correct createProduct");
-//     const productUpdated= validatenewProduct(req.body, { abortEarly: false });;
-//     const product = await new Product(productUpdated).save();
-//     //const product = await new Product(req.body).save();
-//     res.json(product);
-// };
+;
 
 //DELETE by ID
 const deleteProduct = async (req, res) => {
