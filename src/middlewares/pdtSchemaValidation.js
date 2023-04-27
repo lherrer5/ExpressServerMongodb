@@ -11,6 +11,7 @@ const pdtoSchemaValidation=(req, res, next) => {
     next();
 };
 
+
 const updateSchemaValidation=(req, res, next) => {
     const {error}=updateProduct.validate(req.body, {abortEarly: false});
     if (error) {

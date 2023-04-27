@@ -21,7 +21,7 @@ Content-Type: application/json
 
 
 ###PATCH con ID unico
-PATCH  http://localhost:3080/api/v1/products/6449c61e440cb46d3bce1a14 HTTP/1.1
+PATCH  http://localhost:3080/api/v1/products/644acccceacc293ea6138285 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -29,7 +29,7 @@ Content-Type: application/json
 }
 
 ###DELETE con ID unico
-DELETE http://localhost:3080/api/v1/products/9878iuo HTTP/1.1
+DELETE http://localhost:3080/api/v1/products/6446fd31687e0a985b01ea27 HTTP/1.1
 
 # [
 #   {

@@ -15,7 +15,6 @@ productsRouter.get("/", welcomePage);
 productsRouter.get("/health", healthCheck);
 productsRouter.get("/api/v1/products", controller.getAllProducts);
 productsRouter.get("/api/v1/products/:id", joiValidationId, controller.getProductById);
-//productsRouter.post("/api/v1/products", controller.createProduct);
 productsRouter.post("/api/v1/products", pdtoSchemaValidation, controller.createProduct);
 productsRouter.patch("/api/v1/products/:id", joiValidationId, updateSchemaValidation, controller.updateProduct);
 productsRouter.delete("/api/v1/products/:id", joiValidationId, controller.deleteProduct);

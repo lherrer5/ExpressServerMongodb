@@ -23,6 +23,13 @@ const getProductById = async (req, res) => {
     res.json(product);
 };
 //POST
+// const createProduct = async (req, res, next) => {
+//         const newProduct = new Product(req.body);
+//         await newProduct.save();
+//         console.log("Correct createProduct");
+//         res.status(201).json(newProduct);
+// };
+
 const createProduct = async (req, res, next) => {
     try {
         const newProduct = new Product(req.body);
@@ -30,10 +37,10 @@ const createProduct = async (req, res, next) => {
         console.log("Correct createProduct");
         res.status(201).json(newProduct);
     } catch (error) {
+        res.status(500).json({ error: error.message });
         next(error);
     }
 };
-;
 
 //DELETE by ID
 const deleteProduct = async (req, res) => {
