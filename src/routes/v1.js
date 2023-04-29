@@ -5,7 +5,6 @@ const productsRouter = express.Router();
 //const { validatenewProduct, validateUpdateProduct, validateDelProduct } = require("../middlewares/validator");
 const pdtoSchemaValidation=require("../middlewares/pdtSchemaValidation");
 const updateSchemaValidation=require("../middlewares/pdtSchemaValidation");
-//const deleteSchemaValidation=require("../middlewares/pdtSchemaValidation");
 const joiValidationId= require("../middlewares/pdtsValidator");
 //const {newProductSchema} = require("../middlewares/validator")
 //const validator = require("../middlewares/validator")

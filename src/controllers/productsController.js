@@ -1,8 +1,4 @@
 const { Product } = require("../models/models");
-//const { validatenewProduct } = require("../middlewares/validator");
-const { validateUpdateProduct } = require("../middlewares/validator");
-const { validateDelProduct } = require("../middlewares/validator");
-
 
 //GET
 const getAllProducts = async (_, res) => {

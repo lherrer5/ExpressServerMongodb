@@ -1,4 +1,4 @@
-//Use models to create new products as an JS object
+//Use models to create new products as a JS object
 
 //schema from MOONGOSE
 const mongoose=require("mongoose");
