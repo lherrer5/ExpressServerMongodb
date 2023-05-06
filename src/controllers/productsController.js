@@ -1,4 +1,4 @@
-const { Product } = require("../models/models");
+const { Product } = require("../models");
 
 //GET
 const getAllProducts = async (_, res) => {
@@ -40,18 +40,28 @@ const createProduct = async (req, res, next) => {
 
 //DELETE by ID
 const deleteProduct = async (req, res) => {
+    try {
     console.log("Correct deleteProduct");
     const { id } = req.params;
     const product = await Product.findByIdAndRemove(id);
     res.json({ message: `Product ${product.name} has been deleted` });
+} catch (error) {
+    res.status(500).json({ error: error.message });
+    next(error);
+}
 };
 
 //PATCH by ID
 const updateProduct = async (req, res) => {
+    try {
     console.log("Correct updateProduct");
     const { id } = req.params;
     const product = await Product.findByIdAndUpdate(id, req.body, { new: true });
     res.json(product);
+} catch (error) {
+    res.status(500).json({ error: error.message });
+    next(error);
+}
 };
 
 module.exports = {
