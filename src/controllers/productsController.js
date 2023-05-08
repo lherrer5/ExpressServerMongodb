@@ -32,6 +32,8 @@ const createProduct = async (req, res, next) => {
         await newProduct.save();
         console.log("Correct createProduct");
         res.status(201).json(newProduct);
+//As a good practice, the connection should be closed
+        //mongoose.connection.close();
     } catch (error) {
         res.status(500).json({ error: error.message });
         next(error);
