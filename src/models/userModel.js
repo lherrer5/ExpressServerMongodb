@@ -12,10 +12,10 @@ User.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    // birthday: {
-    //     type: DataTypes.DATE,
-    //     allowNull: true
-    // }, 
+    birthday: {
+        type: DataTypes.DATE,//YYYY-MM-DD
+        allowNull: true
+    }, 
     dni: {
         type: DataTypes.STRING,
         allowNull: false
